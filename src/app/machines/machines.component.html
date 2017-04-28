@@ -1,0 +1,14 @@
+<h2>Machines</h2>
+<div>
+    <label>System name: </label> <input #systemName />
+    <button (click)="add(systemName.value); systemName.value=''">
+        Add
+    </button>
+</div>
+<div>
+    <a *ngFor="let machine of machines" [routerLink]="['/machines', machine.id]">
+        <div>
+            <span>{{machine.system_name}}</span>
+        </div>
+    </a>
+</div>

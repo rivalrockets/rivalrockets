@@ -1,0 +1,25 @@
+<div *ngIf="machine">
+    <h2>{{machine.system_name}} details</h2>
+    <div>
+        <label>id: </label>{{machine.id}}
+    </div>
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="machine.system_name" placeholder="system name" />
+    </div>
+    <div>
+        <label>notes: </label>
+        <textarea [(ngModel)]="machine.system_notes" placeholder="system notes">
+        </textarea>
+    </div>
+    <div>
+        <label>owner: </label>
+        <input [(ngModel)]="machine.owner" placeholder="owner name" />
+    </div>
+    <div>
+        <label>date entered: </label>
+        <input [(ngModel)]="machine.timestamp" placeholder="time stamp" type="datetime-local" />
+    </div>
+    <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
+</div>
