@@ -7,8 +7,8 @@ describe('rivalrockets App', () => {
     page = new RivalRocketsPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display "Benchmarks"', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Benchmarks');
   });
 });
