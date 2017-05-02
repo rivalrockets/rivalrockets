@@ -11,13 +11,12 @@ import { MachineDetailComponent } from './machines/machine-detail.component';
 // Revisions
 import { RevisionsComponent } from './revisions/revisions.component';
 // Benchmarks
-import { Cinebenchr15resultsComponent } from
+import { CinebenchR15ResultsComponent } from
     './cinebenchr15results/cinebenchr15results.component';
-import { Futuremark3dmark06resultsComponent } from
+import { Futuremark3dMark06ResultsComponent } from
     './futuremark3dmark06results/futuremark3dmark06results.component';
-import { Futuremark3dmarkResultsComponent } from
+import { Futuremark3dMarkResultsComponent } from
     './futuremark3dmarkresults/futuremark3dmarkresults.component';
-// Results
 
 const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -26,9 +25,9 @@ const routes: Routes = [
     { path: 'machines', component: MachinesComponent },
     { path: 'machines/:id', component: MachineDetailComponent },
     { path: 'revisions', component: RevisionsComponent },
-    { path: 'cinebenchr15results', component: Cinebenchr15resultsComponent },
-    { path: 'futuremark3dmark06results', component: Futuremark3dmark06resultsComponent },
-    { path: 'futuremark3dmarkresults', component: Futuremark3dmarkResultsComponent }
+    { path: 'cinebenchr15results', component: CinebenchR15ResultsComponent },
+    { path: 'futuremark3dmark06results', component: Futuremark3dMark06ResultsComponent },
+    { path: 'futuremark3dmarkresults', component: Futuremark3dMarkResultsComponent }
 ];
 
 @NgModule({

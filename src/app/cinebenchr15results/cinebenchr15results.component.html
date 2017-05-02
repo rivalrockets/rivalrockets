@@ -1,3 +1,35 @@
-<p>
-  cinebenchr15results works!
-</p>
+<h2>Cinebench R15 Results</h2>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>result_date</th>
+      <th>cpu_cb</th>
+      <th>opengl_fps</th>
+      <th>uri</th>
+      <th>machine_author</th>
+      <th>machine_author_id</th>
+      <th>machine_id</th>
+      <th>owner</th>
+      <th>system_name</th>
+      <th>revision_id</th>
+      <th>active_revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of cinebenchR15Results">
+      <td>{{result.id}}</td>
+      <td>{{result.result_date}}</td>
+      <td>{{result.cpu_cb}}</td>
+      <td>{{result.opengl_fps}}</td>
+      <td>{{result.uri}}</td>
+      <td>{{result.machine_author}}</td>
+      <td>{{result.machine_author_id}}</td>
+      <td>{{result.machine_id}}</td>
+      <td>{{result.owner}}</td>
+      <td>{{result.system_name}}</td>
+      <td>{{result.revision_id}}</td>
+      <td>{{result.active_revision}}</td>
+    </tr>
+  </tbody>
+</table>

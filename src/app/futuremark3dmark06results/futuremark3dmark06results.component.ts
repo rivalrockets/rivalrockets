@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './futuremark3dmark06results.component.html',
   styleUrls: ['./futuremark3dmark06results.component.css']
 })
-export class Futuremark3dmark06resultsComponent implements OnInit {
+export class Futuremark3dMark06ResultsComponent implements OnInit {
 
   constructor() { }
 

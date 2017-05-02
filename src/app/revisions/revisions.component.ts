@@ -12,7 +12,6 @@ import { RevisionService } from './revision.service';
 export class RevisionsComponent implements OnInit {
     errorMessage: string;
     revisions: Revision[];
-    selectedRevision: Revision;
 
     constructor(
         private revisionService: RevisionService,

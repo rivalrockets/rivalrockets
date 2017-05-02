@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Cinebenchr15resultsComponent } from './cinebenchr15results.component';
+import { CinebenchR15ResultsComponent } from './cinebenchr15results.component';
 
-describe('Cinebenchr15resultsComponent', () => {
-  let component: Cinebenchr15resultsComponent;
-  let fixture: ComponentFixture<Cinebenchr15resultsComponent>;
+describe('CinebenchR15ResultsComponent', () => {
+  let component: CinebenchR15ResultsComponent;
+  let fixture: ComponentFixture<CinebenchR15ResultsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Cinebenchr15resultsComponent ]
+      declarations: [ CinebenchR15ResultsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Cinebenchr15resultsComponent);
+    fixture = TestBed.createComponent(CinebenchR15ResultsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

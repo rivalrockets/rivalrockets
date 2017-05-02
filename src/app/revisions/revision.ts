@@ -1,4 +1,4 @@
-//import { } from '../cinebenchr15results/cinebenchr15results';
+import { CinebenchR15Result } from '../cinebenchr15results/cinebenchr15result';
 export class Revision {
     id: number;
     cpu_make: string;
@@ -19,7 +19,7 @@ export class Revision {
     timestamp: string;
     author_id: number;
     machine_id: number;
-    // TODO: cinebenchr15results: Cine
+    cinebenchr15results: CinebenchR15Result[];
     // TODO: futuremark3dmark06results
     // TODO: futuremark3dmarkresults
 }
