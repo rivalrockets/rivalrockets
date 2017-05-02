@@ -1,3 +1,57 @@
-<p>
-  revisions works!
-</p>
+<h2>Revisions</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>CPU Make</th>
+      <th>CPU Name</th>
+      <th>CPU Socket</th>
+      <th>CPU MHz</th>
+      <th>CPU Processor Cores</th>
+      <th>Chipset</th>
+      <th>RAM</th>
+      <th>RAM (MHz)</th>
+      <th>GPU</th>
+      <th>GPU Make</th>
+      <th>GPU RAM (MB)</th>
+      <th>revision_notes</th>
+      <th>revision_notes_html</th>
+      <th>pcpartpicker_url</th>
+      <th>timestamp</th>
+      <th>author_id</th>
+      <th>machine_id</th>
+      <th>uri</th>
+      <th>machine_author_id</th>
+      <th>Owner</th>
+      <th>System Name</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let revision of revisions">
+      <td>{{revision.id}}</td>
+      <td>{{revision.cpu_make}}</td>
+      <td>{{revision.cpu_name}}</td>
+      <td>{{revision.cpu_socket}}</td>
+      <td>{{revision.cpu_mhz}}</td>
+      <td>{{revision.cpu_proc_cores}}</td>
+      <td>{{revision.chipset}}</td>
+      <td>{{revision.system_memory_gb}}</td>
+      <td>{{revision.system_memory_mhz}}</td>
+      <td>{{revision.gpu_name}}</td>
+      <td>{{revision.gpu_make}}</td>
+      <td>{{revision.gpu_memory_gb}}</td>
+      <td>{{revision.revision_notes}}</td>
+      <td>{{revision.revision_notes_html}}</td>
+      <td>{{revision.pcpartpicker_url}}</td>
+      <td>{{revision.timestamp}}</td>
+      <td>{{revision.author_id}}</td>
+      <td>{{revision.machine_id}}</td>
+      <td>{{revision.uri}}</td>
+      <td>{{revision.machine_author_id}}</td>
+      <td>{{revision.owner}}</td>
+      <td>{{revision.system_name}}</td>
+      <td>{{revision.active_revision}}</td>
+    </tr>
+  </tbody>
+</table>
