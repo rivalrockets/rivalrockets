@@ -1,3 +1,49 @@
-<p>
-  futuremark3dmarkresults works!
-</p>
+<h2>Futuremark 3DMark Results</h2>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>result_date</th>
+      <th>icestorm_score</th>
+      <th>icestorm_result_url</th>
+      <th>cloudgate_score</th>
+      <th>cloudgate_result_url</th>
+      <th>firestrike_score</th>
+      <th>firestrike_result_url</th>
+      <th>skydiver_score</th>
+      <th>skydiver_result_url</th>
+      <th>overall_result_url</th>
+      <th>uri</th>
+      <th>machine_author</th>
+      <th>machine_author_id</th>
+      <th>machine_id</th>
+      <th>owner</th>
+      <th>system_name</th>
+      <th>revision_id</th>
+      <th>active_revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of futuremark3dMarkResults">
+      <td>{{result.id}}</td>
+      <td>{{result.result_date}}</td>
+      <td>{{result.icestorm_score}}</td>
+      <td>{{result.icestorm_result_url}}</td>
+      <td>{{result.cloudgate_score}}</td>
+      <td>{{result.cloudgate_result_url}}</td>
+      <td>{{result.firestrike_score}}</td>
+      <td>{{result.firestrike_result_url}}</td>
+      <td>{{result.skydiver_score}}</td>
+      <td>{{result.skydiver_result_url}}</td>
+      <td>{{result.overall_result_url}}</td>
+      <td>{{result.uri}}</td>
+      <td>{{result.machine_author}}</td>
+      <td>{{result.machine_author_id}}</td>
+      <td>{{result.machine_id}}</td>
+      <td>{{result.owner}}</td>
+      <td>{{result.system_name}}</td>
+      <td>{{result.revision_id}}</td>
+      <td>{{result.active_revision}}</td>
+    </tr>
+  </tbody>
+</table>

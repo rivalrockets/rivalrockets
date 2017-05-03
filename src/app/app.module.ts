@@ -18,6 +18,7 @@ import { CinebenchR15ResultService } from './cinebenchr15results/cinebenchr15res
 import { Futuremark3dMark06ResultsComponent } from './futuremark3dmark06results/futuremark3dmark06results.component';
 import { Futuremark3dMark06ResultService } from './futuremark3dmark06results/futuremark3dmark06result.service';
 import { Futuremark3dMarkResultsComponent } from './futuremark3dmarkresults/futuremark3dmarkresults.component';
+import { Futuremark3dMarkResultService } from './futuremark3dmarkresults/futuremark3dmarkresult.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { Futuremark3dMarkResultsComponent } from './futuremark3dmarkresults/futu
     MachineService,
     RevisionService,
     CinebenchR15ResultService,
-    Futuremark3dMark06ResultService ],
+    Futuremark3dMark06ResultService,
+    Futuremark3dMarkResultService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
