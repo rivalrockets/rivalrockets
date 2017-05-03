@@ -1,3 +1,53 @@
-<p>
-  futuremark3dmark06results works!
-</p>
+<h2>Futuremark 3DMark 06 Results</h2>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>result_date</th>
+      <th>sm2_score</th>
+      <th>cpu_score</th>
+      <th>sm3_score</th>
+      <th>proxcyon_fps</th>
+      <th>fireflyforest_fps</th>
+      <th>cpu1_fps</th>
+      <th>cpu2_fps</th>
+      <th>canyonflight_fps</th>
+      <th>deepfreeze_fps</th>
+      <th>overall_score</th>
+      <th>result_url</th>
+      <th>uri</th>
+      <th>machine_author</th>
+      <th>machine_author_id</th>
+      <th>machine_id</th>
+      <th>owner</th>
+      <th>system_name</th>
+      <th>revision_id</th>
+      <th>active_revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of futuremark3dMark06Results">
+      <td>{{result.id}}</td>
+      <td>{{result.result_date}}</td>
+      <td>{{result.sm2_score}}</td>
+      <td>{{result.cpu_score}}</td>
+      <td>{{result.sm3_score}}</td>
+      <td>{{result.proxcyon_fps}}</td>
+      <td>{{result.fireflyforest_fps}}</td>
+      <td>{{result.cpu1_fps}}</td>
+      <td>{{result.cpu2_fps}}</td>
+      <td>{{result.canyonflight_fps}}</td>
+      <td>{{result.deepfreeze_fps}}</td>
+      <td>{{result.overall_score}}</td>
+      <td>{{result.result_url}}</td>
+      <td>{{result.uri}}</td>
+      <td>{{result.machine_author}}</td>
+      <td>{{result.machine_author_id}}</td>
+      <td>{{result.machine_id}}</td>
+      <td>{{result.owner}}</td>
+      <td>{{result.system_name}}</td>
+      <td>{{result.revision_id}}</td>
+      <td>{{result.active_revision}}</td>
+    </tr>
+  </tbody>
+</table>
