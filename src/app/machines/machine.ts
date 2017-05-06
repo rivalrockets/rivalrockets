@@ -1,3 +1,5 @@
+import { Revision } from '../revisions/revision';
+
 export class Machine {
     id: number;
     system_name: string;
@@ -7,4 +9,5 @@ export class Machine {
     active_revision_id: number;
     timestamp: string;
     uri: string;
+    revisions: Revision[];
 }
