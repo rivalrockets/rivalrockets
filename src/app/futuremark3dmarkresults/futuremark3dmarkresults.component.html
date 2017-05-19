@@ -2,47 +2,27 @@
 <table class="table table-sm table-bordered table-striped">
   <thead>
     <tr>
-      <th>id</th>
-      <th>result_date</th>
-      <th>icestorm_score</th>
-      <th>icestorm_result_url</th>
-      <th>cloudgate_score</th>
-      <th>cloudgate_result_url</th>
-      <th>firestrike_score</th>
-      <th>firestrike_result_url</th>
-      <th>skydiver_score</th>
-      <th>skydiver_result_url</th>
-      <th>overall_result_url</th>
-      <th>uri</th>
-      <th>machine_author</th>
-      <th>machine_author_id</th>
-      <th>machine_id</th>
-      <th>owner</th>
-      <th>system_name</th>
-      <th>revision_id</th>
-      <th>active_revision</th>
+      <th>Owner</th>
+      <th>System Name</th>
+      <th>Date</th>
+      <th>Ice Storm Score</th>
+      <th>Cloud Gate Score</th>
+      <th>Fire Strike Score</th>
+      <th>Sky Diver Score</th>
+      <th>Overall Result URL</th>
+      <th>Active Revision</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let result of futuremark3dMarkResults">
-      <td>{{result.id}}</td>
-      <td>{{result.result_date}}</td>
-      <td>{{result.icestorm_score}}</td>
-      <td>{{result.icestorm_result_url}}</td>
-      <td>{{result.cloudgate_score}}</td>
-      <td>{{result.cloudgate_result_url}}</td>
-      <td>{{result.firestrike_score}}</td>
-      <td>{{result.firestrike_result_url}}</td>
-      <td>{{result.skydiver_score}}</td>
-      <td>{{result.skydiver_result_url}}</td>
-      <td>{{result.overall_result_url}}</td>
-      <td>{{result.uri}}</td>
-      <td>{{result.machine_author}}</td>
-      <td>{{result.machine_author_id}}</td>
-      <td>{{result.machine_id}}</td>
       <td>{{result.owner}}</td>
       <td>{{result.system_name}}</td>
-      <td>{{result.revision_id}}</td>
+      <td>{{result.result_date | date:"M/d/yy"}}</td>
+      <td><a href='{{result.icestorm_result_url}}'>{{result.icestorm_score}}</a></td>
+      <td><a href='{{result.cloudgate_result_url}}'>{{result.cloudgate_score}}</a></td>
+      <td><a href='{{result.firestrike_result_url}}'>{{result.firestrike_score}}</a></td>
+      <td><a href='{{result.skydiver_result_url}}'>{{result.skydiver_score}}</a></td>
+      <td><a href='{{result.overall_result_url}}'>{{result.overall_result_url}}</a></td>
       <td>{{result.active_revision}}</td>
     </tr>
   </tbody>
