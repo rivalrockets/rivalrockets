@@ -2,33 +2,21 @@
 <table class="table table-sm table-bordered table-striped">
   <thead>
     <tr>
-      <th>id</th>
-      <th>result_date</th>
-      <th>cpu_cb</th>
-      <th>opengl_fps</th>
-      <th>uri</th>
-      <th>machine_author</th>
-      <th>machine_author_id</th>
-      <th>machine_id</th>
-      <th>owner</th>
-      <th>system_name</th>
-      <th>revision_id</th>
-      <th>active_revision</th>
+      <th>Owner</th>
+      <th>System Name</th>
+      <th>Date</th>
+      <th>CPU CB</th>
+      <th>OpenGL FPS</th>
+      <th>Active Revision</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let result of cinebenchR15Results">
-      <td>{{result.id}}</td>
-      <td>{{result.result_date}}</td>
-      <td>{{result.cpu_cb}}</td>
-      <td>{{result.opengl_fps}}</td>
-      <td>{{result.uri}}</td>
-      <td>{{result.machine_author}}</td>
-      <td>{{result.machine_author_id}}</td>
-      <td>{{result.machine_id}}</td>
       <td>{{result.owner}}</td>
       <td>{{result.system_name}}</td>
-      <td>{{result.revision_id}}</td>
+      <td>{{result.result_date | date:"M/d/yy"}}</td>
+      <td>{{result.cpu_cb}}</td>
+      <td>{{result.opengl_fps}}</td>
       <td>{{result.active_revision}}</td>
     </tr>
   </tbody>
