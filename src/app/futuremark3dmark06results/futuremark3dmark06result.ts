@@ -1,6 +1,8 @@
+import { Revision } from '../revisions/revision';
+
 export class Futuremark3dMark06Result {
     id: number;
-    result_date: string;
+    result_date: Date;
     sm2_score: number;
     cpu_score: number;
     sm3_score: number;
@@ -12,12 +14,6 @@ export class Futuremark3dMark06Result {
     deepfreeze_fps: number;
     overall_score: number;
     result_url: number;
+    revision: Revision;
     uri: string;
-    machine_author: string;
-    machine_author_id: number;
-    machine_id: number;
-    owner: string;
-    system_name: string;
-    revision_id: number;
-    active_revision: boolean;
 }

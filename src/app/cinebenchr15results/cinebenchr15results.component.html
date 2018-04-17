@@ -2,9 +2,11 @@
 <table class="table table-sm table-bordered table-striped">
   <thead>
     <tr>
+      <th>User</th>
       <th>Owner</th>
       <th>System Name</th>
-      <th>Date</th>
+      <th>Revision Date</th>
+      <th>Entry Date</th>
       <th>CPU CB</th>
       <th>OpenGL FPS</th>
       <th>Active Revision</th>
@@ -12,12 +14,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let result of cinebenchR15Results">
-      <td>{{result.owner}}</td>
-      <td>{{result.system_name}}</td>
+      <td>{{result.revision.machine.user.username}}</td>
+      <td>{{result.revision.machine.owner}}</td>
+      <td>{{result.revision.machine.system_name}}</td>
+      <td>{{result.revision.timestamp | date:"M/d/yy"}}</td>
       <td>{{result.result_date | date:"M/d/yy"}}</td>
       <td>{{result.cpu_cb}}</td>
       <td>{{result.opengl_fps}}</td>
-      <td>{{result.active_revision}}</td>
+      <td>{{result.revision.machine.active_revision.id === result.revision.id}}</td>
     </tr>
   </tbody>
 </table>

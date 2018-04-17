@@ -1,4 +1,5 @@
 import { Revision } from '../revisions/revision';
+import { User } from '../users/user';
 
 export class Machine {
     id: number;
@@ -6,8 +7,8 @@ export class Machine {
     system_notes: string;
     system_notes_html: string;
     owner: string;
-    active_revision_id: number;
-    timestamp: string;
+    active_revision: Revision;
+    timestamp: Date;
     uri: string;
-    revisions: Revision[];
+    user: User;
 }

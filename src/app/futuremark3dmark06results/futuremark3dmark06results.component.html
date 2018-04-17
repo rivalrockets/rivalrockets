@@ -2,9 +2,11 @@
 <table class="table table-sm table-bordered table-striped">
   <thead>
     <tr>
+      <th>User</th>
       <th>Owner</th>
       <th>System Name</th>
-      <th>Date</th>
+      <th>Revision Date</th>
+      <th>Entry Date</th>
       <th>SM 2.0 Score</th>
       <th>CPU Score</th>
       <th>SM 3.0 Score</th>
@@ -15,13 +17,15 @@
       <th>Canyon Flight FPS</th>
       <th>Deep Freeze FPS</th>
       <th>Overall Score</th>
-      <th>Active Revision</th>
+      <th>Active</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let result of futuremark3dMark06Results">
-      <td>{{result.owner}}</td>
-      <td>{{result.system_name}}</td>
+      <td>{{result.revision.machine.user.username}}</td>
+      <td>{{result.revision.machine.owner}}</td>
+      <td>{{result.revision.machine.system_name}}</td>
+      <td>{{result.revision.timestamp | date:"M/d/yy"}}</td>
       <td>{{result.result_date | date:"M/d/yy"}}</td>
       <td>{{result.sm2_score}}</td>
       <td>{{result.cpu_score}}</td>
@@ -33,7 +37,7 @@
       <td>{{result.canyonflight_fps}}</td>
       <td>{{result.deepfreeze_fps}}</td>
       <td><a href='{{result.result_url}}'>{{result.overall_score}}</a></td>
-      <td>{{result.active_revision}}</td>
+      <td>{{result.revision.machine.active_revision.id === result.revision.id}}</td>
     </tr>
   </tbody>
 </table>

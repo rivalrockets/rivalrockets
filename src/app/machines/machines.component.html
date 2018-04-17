@@ -13,22 +13,7 @@
         <div class="card-block">
             <p class="card-text">Owner: {{machine.owner}}</p>
             <p class="card-text">{{machine.system_notes}}</p>
-            <p class="card-text">{{machine.revisions.length}} Revision(s)</p>
             <p class="card-text">Date: {{machine.timestamp | date:"M/d/yy"}}</p>
         </div>
-        <ul class="list-group list-group-flush" *ngFor="let revision of machine.revisions">
-            <li class="list-group-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">Date: {{revision.timestamp | date:"M/d/yy"}}</div>
-                        <div class="col">{{revision.cpu_make}}</div>
-                        <div class="col">{{revision.cpu_name}}</div>
-                        <div class="col">{{revision.cpu_mhz}} MHz</div>
-                        <div class="col">{{revision.system_memory_gb}} GB RAM</div>
-                        <div class="col">{{revision.gpu_name}}</div>
-                    </div>
-                </div>
-            </li>
-        </ul>
     </div>
 </div>

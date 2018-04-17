@@ -1,6 +1,8 @@
+import { Revision } from '../revisions/revision';
+
 export class Futuremark3dMarkResult {
     id: number;
-    result_date: string;
+    result_date: Date;
     icestorm_score: number;
     icestorm_result_url: string;
     cloudgate_score: number;
@@ -11,11 +13,5 @@ export class Futuremark3dMarkResult {
     skydiver_result_url: string;
     overall_result_url: string;
     uri: string;
-    machine_author: string;
-    machine_author_id: number;
-    machine_id: number;
-    owner: string;
-    system_name: string;
-    revision_id: number;
-    active_revision: number;
+    revision: Revision;
 }
