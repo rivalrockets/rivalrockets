@@ -27,8 +27,8 @@ export class MachineDetailComponent implements OnInit {
     }
 
     save(): void {
-        this.machineService.update(this.machine)
-            .subscribe( () => this.goBack() );
+        // this.machineService.update(this.machine)
+        //     .subscribe( () => this.goBack() );
     }
 
     goBack(): void {

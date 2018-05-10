@@ -18,12 +18,12 @@ export class CinebenchR15ResultsComponent implements OnInit {
     private cinebenchR15ResultService: CinebenchR15ResultService,
     private router: Router) { }
 
-    getCinebenchR15Results(): void {
-        this.cinebenchR15ResultService.getCinebenchR15Results()
-                            .subscribe(
-                                cinebenchR15Results => this.cinebenchR15Results = cinebenchR15Results,
-                                error => this.errorMessage = <any>error);
-    }
+  getCinebenchR15Results(): void {
+    this.cinebenchR15ResultService.getCinebenchR15Results()
+      .subscribe(
+        cinebenchR15Results => this.cinebenchR15Results = cinebenchR15Results,
+        error => this.errorMessage = <any>error);
+  }
 
   ngOnInit(): void {
     this.getCinebenchR15Results();

@@ -28,10 +28,10 @@ export class MachinesComponent implements OnInit {
     add(name: string): void {
         name = name.trim();
         if (!name) { return ; }
-        this.machineService.create(name).subscribe(machine => {
-            this.machines.push(machine);
-            this.selectedMachine = null;
-        })
+        // this.machineService.create(name).subscribe(machine => {
+        //     this.machines.push(machine);
+        //     this.selectedMachine = null;
+        // })
     }
 
     ngOnInit(): void {
