@@ -1,34 +1,15 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">{{title}}</a>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/machines" routerLinkActive="active">Machines</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/revisions" routerLinkActive="active">Revisions</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/cinebenchr15results" routerLinkActive="active">Cinebench R15</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/futuremark3dmark06results" routerLinkActive="active">3DMark 06</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/futuremark3dmarkresults" routerLinkActive="active">3DMark</a>
-      </li>
-    </ul>
-  </div>
+<mat-toolbar>
+  <span>
+    <a href="#">{{title}}</a>
+  </span>
+</mat-toolbar>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a mat-tab-link routerLink="/users" routerLinkActive="active">Users</a>
+  <a mat-tab-link routerLink="/machines" routerLinkActive="active">Machines</a>
+  <a mat-tab-link routerLink="/revisions" routerLinkActive="active">Revisions</a>
+  <a mat-tab-link routerLink="/cinebenchr15results" routerLinkActive="active">Cinebench R15</a>
+  <a mat-tab-link routerLink="/futuremark3dmark06results" routerLinkActive="active">3DMark 06</a>
+  <a mat-tab-link routerLink="/futuremark3dmarkresults" routerLinkActive="active">3DMark</a>
 </nav>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

@@ -1,7 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import {
+  MatTableModule,
+  MatToolbarModule,
+  MatTab,
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTabsModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -23,9 +35,17 @@ import { Futuremark3dMarkResultService } from './futuremark3dmarkresults/futurem
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     AppComponent,
@@ -38,7 +58,17 @@ import { Futuremark3dMarkResultService } from './futuremark3dmarkresults/futurem
     Futuremark3dMark06ResultsComponent,
     Futuremark3dMarkResultsComponent
   ],
-  providers: [ 
+  providers: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
     MachineService,
     RevisionService,
     CinebenchR15ResultService,
