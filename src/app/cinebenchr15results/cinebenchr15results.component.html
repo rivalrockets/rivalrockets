@@ -1,27 +1,49 @@
-<h2>Cinebench R15 Results</h2>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Owner</th>
-      <th>System Name</th>
-      <th>Revision Date</th>
-      <th>Entry Date</th>
-      <th>CPU CB</th>
-      <th>OpenGL FPS</th>
-      <th>Active Revision</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let result of cinebenchR15Results">
-      <td>{{result.revision.machine.user.username}}</td>
-      <td>{{result.revision.machine.owner}}</td>
-      <td>{{result.revision.machine.system_name}}</td>
-      <td>{{result.revision.timestamp | date:"M/d/yy"}}</td>
-      <td>{{result.result_date | date:"M/d/yy"}}</td>
-      <td>{{result.cpu_cb}}</td>
-      <td>{{result.opengl_fps}}</td>
-      <td>{{result.revision.machine.active_revision.id === result.revision.id}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table #table [dataSource]="dataSource" matSort>
+
+  <!-- Username Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> User </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.user.username}} </mat-cell>
+  </ng-container>
+
+  <!-- Owner Column -->
+  <ng-container matColumnDef="owner">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.owner}} </mat-cell>
+  </ng-container>
+
+  <!-- System Name Column -->
+  <ng-container matColumnDef="system_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> System Name </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.system_name}} </mat-cell>
+  </ng-container>
+
+  <!-- Revision Date Column -->
+  <ng-container matColumnDef="timestamp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Revision Date </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.timestamp | date:"M/d/yy"}} </mat-cell>
+  </ng-container>
+  <!-- Entry Date Column -->
+  <ng-container matColumnDef="result_date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Date </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.result_date | date:"M/d/yy"}} </mat-cell>
+  </ng-container>
+  <!-- CPU CB Column -->
+  <ng-container matColumnDef="cpu_cb">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU CB </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.cpu_cb}} </mat-cell>
+  </ng-container>
+  <!-- OpenGL FPS Column -->
+  <ng-container matColumnDef="opengl_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> OpenGL FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.opengl_fps}} </mat-cell>
+  </ng-container>
+  <!-- Active Revision Column -->
+  <ng-container matColumnDef="active_revision">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Active Revision </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.active_revision.id === result.revision.id}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

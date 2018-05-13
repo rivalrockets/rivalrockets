@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { CinebenchR15Result } from './cinebenchr15result';
@@ -9,23 +10,27 @@ import { CinebenchR15ResultService } from './cinebenchr15result.service';
   templateUrl: './cinebenchr15results.component.html',
   styleUrls: ['./cinebenchr15results.component.css']
 })
-export class CinebenchR15ResultsComponent implements OnInit {
-  errorMessage: string;
-  cinebenchR15Results: CinebenchR15Result[];
+export class CinebenchR15ResultsComponent implements AfterViewInit {
+  displayedColumns = ['username', 'owner', 'system_name', 'timestamp', 'result_date', 'cpu_cb', 'opengl_fps', 'active_revision']
 
+  dataSource = new CinebenchR15ResultsDataSource(this.cinebenchR15ResultService);
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private cinebenchR15ResultService: CinebenchR15ResultService,
     private router: Router) { }
 
-  getCinebenchR15Results(): void {
-    this.cinebenchR15ResultService.getCinebenchR15Results()
-      .subscribe(
-        cinebenchR15Results => this.cinebenchR15Results = cinebenchR15Results,
-        error => this.errorMessage = <any>error);
-  }
 
-  ngOnInit(): void {
-    this.getCinebenchR15Results();
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+}
+
+export class CinebenchR15ResultsDataSource extends MatTableDataSource<CinebenchR15Result> {
+  constructor(private cinebenchR15ResultService: CinebenchR15ResultService) {
+    super();
+    this.cinebenchR15ResultService.getCinebenchR15Results().subscribe(d => { this.data = d; })
   }
 }
