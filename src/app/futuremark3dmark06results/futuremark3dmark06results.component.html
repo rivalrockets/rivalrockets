@@ -1,43 +1,87 @@
-<h2>Futuremark 3DMark 06 Results</h2>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Owner</th>
-      <th>System Name</th>
-      <th>Revision Date</th>
-      <th>Entry Date</th>
-      <th>SM 2.0 Score</th>
-      <th>CPU Score</th>
-      <th>SM 3.0 Score</th>
-      <th>Proxcyon FPS</th>
-      <th>Firefly Forest FPS</th>
-      <th>CPU 1 FPS</th>
-      <th>CPU2 FPS</th>
-      <th>Canyon Flight FPS</th>
-      <th>Deep Freeze FPS</th>
-      <th>Overall Score</th>
-      <th>Active</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let result of futuremark3dMark06Results">
-      <td>{{result.revision.machine.user.username}}</td>
-      <td>{{result.revision.machine.owner}}</td>
-      <td>{{result.revision.machine.system_name}}</td>
-      <td>{{result.revision.timestamp | date:"M/d/yy"}}</td>
-      <td>{{result.result_date | date:"M/d/yy"}}</td>
-      <td>{{result.sm2_score}}</td>
-      <td>{{result.cpu_score}}</td>
-      <td>{{result.sm3_score}}</td>
-      <td>{{result.proxcyon_fps}}</td>
-      <td>{{result.fireflyforest_fps}}</td>
-      <td>{{result.cpu1_fps}}</td>
-      <td>{{result.cpu2_fps}}</td>
-      <td>{{result.canyonflight_fps}}</td>
-      <td>{{result.deepfreeze_fps}}</td>
-      <td><a href='{{result.result_url}}'>{{result.overall_score}}</a></td>
-      <td>{{result.revision.machine.active_revision.id === result.revision.id}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table #table [dataSource]="dataSource" matSort>
+  <!-- Username Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> User </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.user.username}} </mat-cell>
+  </ng-container>
+  <!-- Owner Column -->
+  <ng-container matColumnDef="owner">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.owner}} </mat-cell>
+  </ng-container>
+  <!-- System Name Column -->
+  <ng-container matColumnDef="system_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> System Name </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.system_name}} </mat-cell>
+  </ng-container>
+  <!-- Active Column -->
+  <ng-container matColumnDef="active_revision">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Active Revision </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.machine.active_revision.id === result.revision.id}} </mat-cell>
+  </ng-container>
+  <!-- Revision Date Column -->
+  <ng-container matColumnDef="timestamp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Revision Date </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.revision.timestamp | date:"M/d/yy"}} </mat-cell>
+  </ng-container>
+  <!-- Entry Date Column -->
+  <ng-container matColumnDef="result_date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Date </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.result_date | date:"M/d/yy"}} </mat-cell>
+  </ng-container>
+  <!-- SM 2.0 Score Column -->
+  <ng-container matColumnDef="sm2_score">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> SM 2.0 Score </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.sm2_score}} </mat-cell>
+  </ng-container>
+  <!-- CPU Score Column -->
+  <ng-container matColumnDef="cpu_score">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU Score </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.cpu_score}} </mat-cell>
+  </ng-container>
+  <!-- SM 3.0 Score Column -->
+  <ng-container matColumnDef="sm3_score">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> SM 3.0 Score </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.sm3_score}} </mat-cell>
+  </ng-container>
+  <!-- Proxcyon FPS Column -->
+  <ng-container matColumnDef="proxcyon_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Proxcyon FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.proxcyon_fps}} </mat-cell>
+  </ng-container>
+  <!-- Firefly Forest FPS Column -->
+  <ng-container matColumnDef="fireflyforest_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Firefly Forest FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.fireflyforest_fps}} </mat-cell>
+  </ng-container>
+  <!-- CPU 1 FPS Column -->
+  <ng-container matColumnDef="cpu1_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU 1 FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.cpu1_fps}} </mat-cell>
+  </ng-container>
+  <!-- CPU2 FPS Column -->
+  <ng-container matColumnDef="cpu2_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU2 FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.cpu2_fps}} </mat-cell>
+  </ng-container>
+  <!-- Canyon Flight FPS Column -->
+  <ng-container matColumnDef="canyonflight_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Canyon Flight FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.canyonflight_fps}} </mat-cell>
+  </ng-container>
+  <!-- Deep Freeze FPS Column -->
+  <ng-container matColumnDef="deepfreeze_fps">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Deep Freeze FPS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.deepfreeze_fps}} </mat-cell>
+  </ng-container>
+  <!-- Overall Score Column -->
+  <ng-container matColumnDef="overall_score">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Overall Score </mat-header-cell>
+    <mat-cell *matCellDef="let result">
+      <a href='{{result.result_url}}'>{{result.overall_score}}</a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
