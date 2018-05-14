@@ -1,33 +1,60 @@
-<h2>Futuremark 3DMark Results</h2>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Owner</th>
-      <th>System Name</th>
-      <th>Revision Date</th>
-      <th>Entry Date</th>
-      <th>Ice Storm Score</th>
-      <th>Cloud Gate Score</th>
-      <th>Fire Strike Score</th>
-      <th>Sky Diver Score</th>
-      <th>Overall Result URL</th>
-      <th>Active</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let result of futuremark3dMarkResults">
-      <td>{{result.revision.machine.user.username}}</td>
-      <td>{{result.revision.machine.owner}}</td>
-      <td>{{result.revision.machine.system_name}}</td>
-      <td>{{result.revision.timestamp | date:"M/d/yy"}}</td>
-      <td>{{result.result_date | date:"M/d/yy"}}</td>
-      <td><a href='{{result.icestorm_result_url}}'>{{result.icestorm_score}}</a></td>
-      <td><a href='{{result.cloudgate_result_url}}'>{{result.cloudgate_score}}</a></td>
-      <td><a href='{{result.firestrike_result_url}}'>{{result.firestrike_score}}</a></td>
-      <td><a href='{{result.skydiver_result_url}}'>{{result.skydiver_score}}</a></td>
-      <td><a href='{{result.overall_result_url}}'>{{result.overall_result_url}}</a></td>
-      <td>{{result.revision.machine.active_revision.id === result.revision.id}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table #table [dataSource]="dataSource" matSort>
+    <!-- Username Column -->
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> User </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.revision.machine.user.username}} </mat-cell>
+    </ng-container>
+    <!-- Owner Column -->
+    <ng-container matColumnDef="owner">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.revision.machine.owner}} </mat-cell>
+    </ng-container>
+    <!-- System Name Column -->
+    <ng-container matColumnDef="system_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> System Name </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.revision.machine.system_name}} </mat-cell>
+    </ng-container>
+    <!-- Active Column -->
+    <ng-container matColumnDef="active_revision">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Active Revision </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.revision.machine.active_revision.id === result.revision.id}} </mat-cell>
+    </ng-container>
+    <!-- Revision Date Column -->
+    <ng-container matColumnDef="timestamp">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Revision Date </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.revision.timestamp | date:"M/d/yy"}} </mat-cell>
+    </ng-container>
+    <!-- Entry Date Column -->
+    <ng-container matColumnDef="result_date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Entry Date </mat-header-cell>
+      <mat-cell *matCellDef="let result"> {{result.result_date | date:"M/d/yy"}} </mat-cell>
+    </ng-container>
+    <!-- Cloud Gate Column -->
+    <ng-container matColumnDef="icestorm_score">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cloud Gate </mat-header-cell>
+      <mat-cell *matCellDef="let result"> <a href='{{result.icestorm_result_url}}'>{{result.icestorm_score}}</a> </mat-cell>
+    </ng-container>
+    <!-- Fire Strike Column -->
+    <ng-container matColumnDef="cloudgate_score">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fire Strike </mat-header-cell>
+      <mat-cell *matCellDef="let result"> <a href='{{result.cloudgate_result_url}}'>{{result.cloudgate_score}}</a> </mat-cell>
+    </ng-container>
+    <!-- Sky Diver Column -->
+    <ng-container matColumnDef="firestrike_score">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sky Diver </mat-header-cell>
+      <mat-cell *matCellDef="let result"> <a href='{{result.firestrike_result_url}}'>{{result.firestrike_score}}</a> </mat-cell>
+    </ng-container>
+    <!-- Ice Storm Column -->
+    <ng-container matColumnDef="skydiver_score">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Ice Storm </mat-header-cell>
+      <mat-cell *matCellDef="let result"> <a href='{{result.skydiver_result_url}}'>{{result.skydiver_score}}</a> </mat-cell>
+    </ng-container>
+    <!-- Overall Result URL Column -->
+    <ng-container matColumnDef="overall_result_url">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Overall Result URL </mat-header-cell>
+      <mat-cell *matCellDef="let result"> <a href='{{result.overall_result_url}}'>{{result.overall_result_url}}</a> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>

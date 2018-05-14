@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { Futuremark3dMarkResult } from './futuremark3dmarkresult';
@@ -9,22 +10,26 @@ import { Futuremark3dMarkResultService } from './futuremark3dmarkresult.service'
   templateUrl: './futuremark3dmarkresults.component.html',
   styleUrls: ['./futuremark3dmarkresults.component.css']
 })
-export class Futuremark3dMarkResultsComponent implements OnInit {
-  errorMessage: string;
-  futuremark3dMarkResults: Futuremark3dMarkResult[];
+export class Futuremark3dMarkResultsComponent implements AfterViewInit {
+  displayedColumns = ['username', 'owner', 'system_name', 'active_revision', 'timestamp',
+  'result_date', 'icestorm_score', 'cloudgate_score', 'firestrike_score', 'skydiver_score', 'overall_result_url'];
+
+  dataSource = new Futuremark3dMarkResultsDataSource(this.futuremark3dMarkResultService);
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private futuremark3dMarkResultService: Futuremark3dMarkResultService,
     private router: Router) { }
 
-    getFuturemark3dMarkResults(): void {
-        this.futuremark3dMarkResultService.getFuturemark3dMarkResults()
-                            .subscribe(
-                                futuremark3dMarkResults => this.futuremark3dMarkResults = futuremark3dMarkResults,
-                                error => this.errorMessage = <any>error);
-    }
+    ngAfterViewInit() {
+      this.dataSource.sort = this.sort;
+  }
+}
 
-  ngOnInit() {
-    this.getFuturemark3dMarkResults();
+export class Futuremark3dMarkResultsDataSource extends MatTableDataSource<Futuremark3dMarkResult> {
+  constructor(private futuremark3dMarkResultService: Futuremark3dMarkResultService) {
+    super();
+    this.futuremark3dMarkResultService.getFuturemark3dMarkResults().subscribe(d => { this.data = d; })
   }
 }
