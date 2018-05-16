@@ -2,25 +2,25 @@
 
   <!-- Username Column -->
   <ng-container matColumnDef="username">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> User </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
     <mat-cell *matCellDef="let result"> {{result.revision.machine.user.username}} </mat-cell>
   </ng-container>
 
   <!-- Owner Column -->
   <ng-container matColumnDef="owner">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Owner </mat-header-cell>
     <mat-cell *matCellDef="let result"> {{result.revision.machine.owner}} </mat-cell>
   </ng-container>
 
   <!-- System Name Column -->
   <ng-container matColumnDef="system_name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> System Name </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> System Name </mat-header-cell>
     <mat-cell *matCellDef="let result"> {{result.revision.machine.system_name}} </mat-cell>
   </ng-container>
 
   <!-- Revision Date Column -->
   <ng-container matColumnDef="timestamp">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Revision Date </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Revision Date </mat-header-cell>
     <mat-cell *matCellDef="let result"> {{result.revision.timestamp | date:"M/d/yy"}} </mat-cell>
   </ng-container>
   <!-- Entry Date Column -->
@@ -40,7 +40,7 @@
   </ng-container>
   <!-- Active Revision Column -->
   <ng-container matColumnDef="active_revision">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Active Revision </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Active Revision </mat-header-cell>
     <mat-cell *matCellDef="let result"> {{result.revision.machine.active_revision.id === result.revision.id}} </mat-cell>
   </ng-container>
 
