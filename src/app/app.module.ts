@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
+  MatListModule,
   MatTableModule,
   MatToolbarModule,
   MatTab,
@@ -12,7 +13,8 @@ import {
   MatSortModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTabsModule
+  MatTabsModule,
+  MatIconModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +41,8 @@ import { Futuremark3dMarkResultService } from './futuremark3dmarkresults/futurem
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MatIconModule,
+    MatListModule,
     MatTableModule,
     MatToolbarModule,
     MatTabsModule,
@@ -62,6 +66,8 @@ import { Futuremark3dMarkResultService } from './futuremark3dmarkresults/futurem
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
+    MatListModule,
     MatTableModule,
     MatToolbarModule,
     MatTabsModule,

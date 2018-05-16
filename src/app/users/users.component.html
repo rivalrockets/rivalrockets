@@ -1,5 +1,6 @@
-<ul>
-    <li *ngFor="let user of users">
-        <span>{{user.username}}</span>
-    </li>
-</ul>
+<mat-list>
+    <mat-list-item *ngFor="let user of users">
+        <mat-icon  mat-list-icon>face</mat-icon>
+        <h4 mat-line>{{user.username}}</h4>
+    </mat-list-item>
+</mat-list>
