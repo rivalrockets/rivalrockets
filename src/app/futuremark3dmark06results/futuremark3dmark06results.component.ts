@@ -12,8 +12,8 @@ import { Futuremark3dMark06ResultService } from './futuremark3dmark06result.serv
 })
 export class Futuremark3dMark06ResultsComponent implements AfterViewInit {
   displayedColumns = ['username', 'owner', 'system_name', 'active_revision', 'timestamp',
-  'result_date', 'sm2_score', 'cpu_score', 'sm3_score', 'proxcyon_fps', 'fireflyforest_fps',
-  'cpu1_fps', 'cpu2_fps', 'canyonflight_fps', 'deepfreeze_fps', 'overall_score'];
+    'result_date', 'sm2_score', 'cpu_score', 'sm3_score', 'proxcyon_fps', 'fireflyforest_fps',
+    'cpu1_fps', 'cpu2_fps', 'canyonflight_fps', 'deepfreeze_fps', 'overall_score'];
 
   dataSource = new Futuremark3dMark06ResultsDataSource(this.futuremark3dMark06ResultService);
 
@@ -23,8 +23,8 @@ export class Futuremark3dMark06ResultsComponent implements AfterViewInit {
     private futuremark3dMark06ResultService: Futuremark3dMark06ResultService,
     private router: Router) { }
 
-    ngAfterViewInit() {
-      this.dataSource.sort = this.sort;
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 }
 
