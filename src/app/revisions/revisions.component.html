@@ -1,47 +1,96 @@
-<h2>Revisions</h2>
-<table class="table table-sm table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Owner</th>
-      <th>System Name</th>
-      <th>CPU Make</th>
-      <th>CPU Name</th>
-      <th>CPU Socket</th>
-      <th>CPU MHz</th>
-      <th>CPU Processor Cores</th>
-      <th>Chipset</th>
-      <th>RAM</th>
-      <th>RAM (MHz)</th>
-      <th>GPU</th>
-      <th>GPU Make</th>
-      <th>GPU RAM (MB)</th>
-      <th>Notes</th>
-      <th>Link</th>
-      <th>Revision Date</th>
-      <th>Active</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let revision of revisions">
-      <td>{{revision.machine.user.username}}</td>
-      <td>{{revision.machine.owner}}</td>
-      <td>{{revision.machine.system_name}}</td>
-      <td>{{revision.cpu_make}}</td>
-      <td>{{revision.cpu_name}}</td>
-      <td>{{revision.cpu_socket}}</td>
-      <td>{{revision.cpu_mhz}}</td>
-      <td>{{revision.cpu_proc_cores}}</td>
-      <td>{{revision.chipset}}</td>
-      <td>{{revision.system_memory_gb}}</td>
-      <td>{{revision.system_memory_mhz}}</td>
-      <td>{{revision.gpu_name}}</td>
-      <td>{{revision.gpu_make}}</td>
-      <td>{{revision.gpu_memory_gb}}</td>
-      <td>{{revision.revision_notes}}</td>
-      <td><a href="{{revision.pcpartpicker_url}}">PCPartPicker</a></td>
-      <td>{{revision.timestamp | date:"M/d/yy"}}</td>
-      <td>{{revision.machine.active_revision.id === revision.id}}</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table #table [dataSource]="dataSource" matSort>
+
+  <!-- User Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.machine.user.username}} </mat-cell>
+  </ng-container>
+  <!-- Owner Column -->
+  <ng-container matColumnDef="owner">
+    <mat-header-cell *matHeaderCellDef> Owner </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.machine.owner}} </mat-cell>
+  </ng-container>
+  <!-- System Name Column -->
+  <ng-container matColumnDef="system_name">
+    <mat-header-cell *matHeaderCellDef> System Name </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.machine.system_name}} </mat-cell>
+  </ng-container>
+  <!-- Active Column -->
+  <ng-container matColumnDef="active_revision">
+    <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.machine.active_revision.id === revision.id}} </mat-cell>
+  </ng-container>
+  <!-- Revision Date Column -->
+  <ng-container matColumnDef="timestamp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Revision Date </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.timestamp | date:"M/d/yy"}} </mat-cell>
+  </ng-container>
+  <!-- CPU Make Column -->
+  <ng-container matColumnDef="cpu_make">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU Make </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.cpu_make}} </mat-cell>
+  </ng-container>
+  <!-- CPU Name Column -->
+  <ng-container matColumnDef="cpu_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU Name </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.cpu_name}} </mat-cell>
+  </ng-container>
+  <!-- CPU Socket Column -->
+  <ng-container matColumnDef="cpu_socket">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU Socket </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.cpu_socket}} </mat-cell>
+  </ng-container>
+  <!-- CPU MHz Column -->
+  <ng-container matColumnDef="cpu_mhz">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU MHz </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.cpu_mhz}} </mat-cell>
+  </ng-container>
+  <!-- CPU Processor Cores Column -->
+  <ng-container matColumnDef="cpu_proc_cores">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> CPU Processor Cores </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.cpu_proc_cores}} </mat-cell>
+  </ng-container>
+  <!-- Chipset Column -->
+  <ng-container matColumnDef="chipset">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Chipset </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.chipset}} </mat-cell>
+  </ng-container>
+  <!-- RAM Column -->
+  <ng-container matColumnDef="system_memory_gb">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> RAM </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.system_memory_gb}} </mat-cell>
+  </ng-container>
+  <!-- RAM (MHz) Column -->
+  <ng-container matColumnDef="system_memory_mhz">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> RAM (MHz) </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.system_memory_mhz}} </mat-cell>
+  </ng-container>
+  <!-- GPU Column -->
+  <ng-container matColumnDef="gpu_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> GPU </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.gpu_name}} </mat-cell>
+  </ng-container>
+  <!-- GPU Make Column -->
+  <ng-container matColumnDef="gpu_make">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> GPU Make </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.gpu_make}} </mat-cell>
+  </ng-container>
+  <!-- GPU RAM (MB) Column -->
+  <ng-container matColumnDef="gpu_memory_gb">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> GPU RAM (MB) </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.gpu_memory_gb}} </mat-cell>
+  </ng-container>
+  <!-- Notes Column -->
+  <ng-container matColumnDef="revision_notes">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Notes </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> {{revision.revision_notes}} </mat-cell>
+  </ng-container>
+  <!-- Link Column -->
+  <ng-container matColumnDef="pcpartpicker_url">
+    <mat-header-cell *matHeaderCellDef> Link </mat-header-cell>
+    <mat-cell *matCellDef="let revision"> <a href="{{revision.pcpartpicker_url}}">PCPartPicker</a> </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

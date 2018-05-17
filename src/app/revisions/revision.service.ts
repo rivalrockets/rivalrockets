@@ -14,7 +14,6 @@ export interface Revisions {
 @Injectable()
 export class RevisionService {
 
-    private headers = new Headers({ 'Content-Type': 'application/json' });
     private revisionsUrl = environment.webapiRoot + 'revisions';
 
     constructor(private http: HttpClient) { }
